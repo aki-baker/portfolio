@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Abu Baker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #111;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease-in-out;
+        }
+
+        /* Shrink Navbar on Scroll */
+        .shrink {
+            padding: 10px 40px;
+            background-color: rgba(17, 17, 17, 0.9);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: #FF0066;
+            margin-left: 8px;
+        }
+
+        /* Navbar */
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 16px;
+            transition: color 0.3s ease, transform 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a:hover {
+            color: #FF0066;
+            transform: scale(1.1);
+        }
+
+        nav ul li a.active {
+            color: #FF0066;
+            font-weight: 700;
+        }
+
+        /* Mobile Menu */
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #111;
+                padding: 10px 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 20px 60px;
+            text-align: center;
+        }
+
+        .skills h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #FF0066;
+            font-weight: 700;
+        }
+
+        .skill-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .skill {
+            background-color: #111;
+            border: 1px solid #444;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        .skill:nth-child(1) { animation-delay: 0.3s; }
+        .skill:nth-child(2) { animation-delay: 0.6s; }
+        .skill:nth-child(3) { animation-delay: 0.9s; }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(255, 0, 102, 0.3);
+            border-color: #FF0066;
+        }
+
+        .skill i {
+            font-size: 40px;
+            color: #FF0066;
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .skill p {
+            font-size: 16px;
+            color: #aaa;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #aaa;
+        }
+
+        footer i {
+            margin-right: 10px;
+            color: #FF0066;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        footer i:hover {
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header id="navbar">
+        <div class="logo">ABU<span>BAKER</span></div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav>
+    <ul>
+        <li><a href="Portfolio.html" class="active"><i class="fas fa-home"></i> Portfolio</a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i> About Me</a></li>
+        <li><a href="skills.html"><i class="fas fa-cogs"></i> Skills</a></li>
+        <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+        <li><a href="certificate.html"><i class="fas fa-certificate"></i> Certificates</a></li> <!-- ✅ New Certificate Button -->
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+</nav>
+
+    </header>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <h1>My Skills</h1>
+        <div class="skill-container">
+            <div class="skill">
+                <i class="fas fa-code"></i>
+                <h3>Programming</h3>
+                <p>HTML, CSS, JavaScript, PHP, MySQL, C, C++</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Digital Marketing</h3>
+                <p>Meta Ads, Facebook Ads, Instagram Ads</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Graphic Design</h3>
+                <p>Creative and professional designs for various needs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Abu Baker. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Shrink Navbar on Scroll
+        window.addEventListener("scroll", function () {
+            var navbar = document.getElementById("navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("shrink");
+            } else {
+                navbar.classList.remove("shrink");
+            }
+        });
+
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            document.querySelector("nav ul").classList.toggle("show");
+        }
+    </script>
+
+</body>
+</html>
